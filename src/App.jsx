@@ -1,25 +1,20 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
-import { BGroup, Show } from "./component/gamePanel";
+import {  Show } from "./component/gamePanel";
 import { Card } from "@blueprintjs/core";
-import { loadGameFile } from "./utils/readfile";
-import { mystr } from "./自然";
-import { useRef } from "react";
+import { GameFile } from "./utils/readfile.js";
+import { mystr } from "./nature";
 
 function App() {
-  let gamestr = useRef("");
-  gamestr = loadGameFile(mystr).join("\n\n");
+  const myClassInstanceRef = useRef(null);
+  useEffect(() => {
+    myClassInstanceRef.current = new GameFile(mystr);
+  }, []);
+  // console.log(myClassInstanceRef.current);
 
   return (
     <Card elevation={3} style={{ width: 800, height: 500 }}>
-      <div>
-        <Show gamestr={gamestr}></Show>
-      </div>
-      <div>
-        <BGroup></BGroup>
-      </div>
+        <Show instanceRef={myClassInstanceRef}></Show>
     </Card>
   );
 }
