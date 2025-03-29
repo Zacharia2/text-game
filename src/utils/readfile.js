@@ -1,5 +1,5 @@
-import { log } from 'node:console'
-import fs from 'node:fs'
+// import { log } from 'node:console'
+import fs from 'fs'
 
 
 export function loadGameFile(gameFile) {
@@ -11,6 +11,6 @@ export function loadGameFile(gameFile) {
     let line = gameContent.split(/\n/g)
     let paragraphList = line.filter(line => line.length !== 0 && line.search(pattern))
     paragraphList = paragraphList.map((value) => value.trim())
-    log()
+    // log()
     return paragraphList
 }
