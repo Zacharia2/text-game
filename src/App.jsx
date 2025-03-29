@@ -5,14 +5,17 @@ import "./App.css";
 import { BGroup, Show } from "./component/gamePanel";
 import { Card } from "@blueprintjs/core";
 import { loadGameFile } from "./utils/readfile";
+import { mystr } from "./自然";
+import { useRef } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-  let gamecontent = loadGameFile("src/自然.txt").join("");
+  let gamestr = useRef("");
+  gamestr = loadGameFile(mystr).join("\n\n");
+
   return (
     <Card elevation={3} style={{ width: 800, height: 500 }}>
       <div>
-        <Show gamecontent={gamecontent}></Show>
+        <Show gamestr={gamestr}></Show>
       </div>
       <div>
         <BGroup></BGroup>

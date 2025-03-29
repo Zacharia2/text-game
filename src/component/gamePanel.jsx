@@ -1,15 +1,14 @@
 import { ButtonGroup, Button, TextArea } from "@blueprintjs/core";
 import { useState } from "react";
 
-export function Show({ gameContent }) {
-    let [gamestr, setGamestr] = useState("");
-    setGamestr(gameContent);
+export function Show({ gamestr }) {
+  const [count, setCount] = useState(0);
 
   return (
     <TextArea
       style={{ width: 800, height: 400 }}
       readOnly
-      //   value={gameContent}
+      value={gamestr}
     ></TextArea>
   );
 }
