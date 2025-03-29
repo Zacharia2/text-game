@@ -18,15 +18,15 @@ function Show({ instanceRef }) {
       />
       <ButtonGroup style={{ margin: 20 }}>
         <Button
-          text="next"
-          onClick={() => {
-            setCurrentPart(instanceRef.current.nextSection());
-          }}
-        />
-        <Button
           text="preview"
           onClick={() => {
             setCurrentPart(instanceRef.current.previewSection());
+          }}
+        />
+        <Button
+          text="next"
+          onClick={() => {
+            setCurrentPart(instanceRef.current.nextSection());
           }}
         />
         <Button text="Three" />

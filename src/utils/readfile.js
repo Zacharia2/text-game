@@ -40,14 +40,18 @@ class GameFile {
         return keys
     }
     nextSection() {
-        this.currentSection++
-        let key = this.keys[this.currentSection]
-        return this.section.get(key)
+        if (this.currentSection <= this.keys.length -1) {
+            this.currentSection++
+            let key = this.keys[this.currentSection]
+            return this.section.get(key)
+        }
     }
     previewSection() {
-        this.currentSection--
-        let key = this.keys[this.currentSection]
-        return this.section.get(key)
+        if (this.currentSection > 0) {
+            this.currentSection--
+            let key = this.keys[this.currentSection]
+            return this.section.get(key)
+        }
     }
 }
 
