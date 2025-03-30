@@ -142,6 +142,17 @@ function Links_wiki_syntax({
     }
     return <p style={{ display: "inline" }}>{item.content}</p>;
   });
-  return <div>{link_array}</div>;
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      {link_array}
+    </div>
+  );
 }
 export { Show };
