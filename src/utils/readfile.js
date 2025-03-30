@@ -40,7 +40,7 @@ class GameFile {
         return keys
     }
     nextSection() {
-        if (this.currentSection <= this.keys.length -1) {
+        if (this.currentSection <= this.keys.length - 1) {
             this.currentSection++
             let key = this.keys[this.currentSection]
             return this.section.get(key)
@@ -53,6 +53,13 @@ class GameFile {
             return this.section.get(key)
         }
     }
+    gotoSection(key) {
+        this.currentSection = this.keys.indexOf(key)
+        let mkey = this.keys[this.currentSection]
+        console.log(mkey);
+        
+        return this.section.get(mkey)
+    }
 }
 
 export { GameFile }
@@ -61,3 +68,4 @@ export { GameFile }
 // let c = a.nextSection()
 // let p = a.previewSection()
 // console.log();
+
