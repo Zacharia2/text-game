@@ -22,12 +22,27 @@ function Show({ instanceRef }) {
         //   setCurrentPart(text);
         // }}
       >
-        <Links_wiki_syntax
-          strContent={currentPart}
-          instanceRef={instanceRef}
-          setCurrentSection={setCurrentSection}
-          setCurrentPart={setCurrentPart}
-        />
+        {currentPart ? (
+          <Links_wiki_syntax
+            strContent={currentPart}
+            instanceRef={instanceRef}
+            setCurrentSection={setCurrentSection}
+            setCurrentPart={setCurrentPart}
+          />
+        ) : (
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              fontSize:'36px',
+              fontWeight:'bold'
+            }}
+          >
+            一个文本游戏
+          </div>
+        )}
       </Card>
       <ButtonGroup style={{ margin: 20 }}>
         <Button
