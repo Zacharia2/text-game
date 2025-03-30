@@ -1,4 +1,7 @@
 # text-game
+![image](https://github.com/user-attachments/assets/102f1868-eab3-44ad-8dfb-12774f18157e)
+![image](https://github.com/user-attachments/assets/53db6c81-103c-4ba4-9503-cd148d6cdfe5)
+
 
 ## React + Vite
 
