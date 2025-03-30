@@ -57,12 +57,40 @@ class GameFile {
         this.currentSection = this.keys.indexOf(key)
         let mkey = this.keys[this.currentSection]
         console.log(mkey);
-        
+
         return this.section.get(mkey)
     }
 }
 
-export { GameFile }
+const slpitMarkAndText = (text) => {
+    const markpattern = /(?<!!)\[\[(.*?)\]\]/g;
+    let match;
+    let lastIndex = 0;
+    let result = [];
+    while ((match = markpattern.exec(text))) {
+        // 获取匹配项之前的普通文本,match.index为匹配项开始的位置。
+        if (lastIndex < match.index) {
+            result.push({
+                type: "text",
+                content: text.slice(lastIndex, match.index),
+            });
+        }
+        // 添加匹配的链接文本
+        let link_param_arr = match[1].split("|");
+        let main_param = link_param_arr[0];
+        let alias_param = link_param_arr[1] || "";
+        result.push({ type: "link", main: main_param, alias: alias_param });
+        // 更新 lastIndex 以继续查找
+        lastIndex = match.index + match[0].length;
+    } // 添加最后一个匹配项之后的普通文本（如果有的话）
+    if (lastIndex < text.length) {
+        result.push({ type: "text", content: text.slice(lastIndex) });
+    }
+
+    return result;
+};
+
+export { GameFile, slpitMarkAndText }
 // let a = new GameFile(mystr)
 // let b = a.nextSection()
 // let c = a.nextSection()
